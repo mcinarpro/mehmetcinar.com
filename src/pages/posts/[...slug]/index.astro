@@ -145,7 +145,7 @@ const ogImage = ogImageUrl
       <Content />
     </article>
 
-    <hr class="my-8 border-dashed" />
+    <hr class="my-8" />
 
     <EditPost class="sm:hidden" {hideEditPost} {post} />
 
@@ -157,7 +157,7 @@ const ogImage = ogImageUrl
 
     <ShareLinks />
 
-    <hr class="my-8 border-dashed" />
+    <hr class="my-8" />
 
     <AdjacentPostNav {prevPost} {nextPost} />
   </main>
@@ -207,6 +207,7 @@ const ogImage = ogImageUrl
       link.className =
         "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
       link.href = "#" + heading.id;
+      link.ariaLabel = `Link to section: ${heading.textContent}`;
 
       const span = document.createElement("span");
       span.ariaHidden = "true";
