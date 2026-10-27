@@ -8,6 +8,7 @@ bun.
 
 1. `GLOSSARY.md`: the Site's language. Use its terms in code, content, issues and commits.
 2. `docs/adr/`: the decisions and their reasons.
+3. `DESIGN.md`: the visual system. Read it before any change to a page, a component or a style.
 
 ## Map
 
@@ -39,9 +40,10 @@ Agents start the dev server in background mode – `astro dev --background` – 
 - **The repo describes the present only.** No reference to past setups, previous domains or
   deleted projects; a reader a year from now would not know what they are.
 - **bun is the package manager.** Never add another lockfile.
-- **Styles come from the tokens** in `src/styles/theme.css`. Never hard-code a colour in a
-  component. A change that touches a colour or a Post layout keeps Lighthouse at 100 in
-  Accessibility, Best Practices and SEO on a Post page.
+- **Every UI change follows `DESIGN.md`.** Styles come from the tokens in
+  `src/styles/theme.css`; never hard-code a colour in a component. A change that touches a
+  colour or a Post layout keeps Lighthouse at 100 in Accessibility, Best Practices and SEO on a
+  Post page.
 - **Commits follow Conventional Commits** (`feat:`, `fix:`, `style:`, `docs:`, `chore:`).
   Agents propose the message; Mehmet commits and pushes. Never commit or push unasked.
 - **`main` is production.** Work in progress lives on a branch.
