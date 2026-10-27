@@ -18,12 +18,13 @@ So it is up to me. I am going to learn.
 The house has a home automation system from about twenty years ago. The brand is PHC, and nobody
 maintains it anymore.
 
-Every bedroom has a panel with four or five push buttons. Thin cables, a bit like Ethernet cables,
+Every room has a panel with four or five push buttons. Thin cables, a bit like Ethernet cables,
 go from each panel to the cabinet. It is not a normal fuse box. It is a big cabinet full of wires.
 
-Then we built a new kitchen at the back of the house. We knocked down a wall and removed the old
-kitchen cables ourselves. An electrician came to connect the new ones. But there is no light
-switch on that side of the room.
+Then we moved the kitchen. The new one is in an unfinished room at the back of the house, and the
+old kitchen became an extra bedroom. We knocked down a wall and removed the kitchen cables
+ourselves. An electrician came to connect the new ones. But there is no light switch on the
+kitchen side.
 
 For now, I found a workaround. I connected the new LED lights to push buttons that already
 existed.
