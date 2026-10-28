@@ -82,3 +82,17 @@ Full documentation: https://docs.astro.build. Read the relevant guide before wor
 - [Astro components](https://docs.astro.build/en/basics/astro-components/)
 - [content collections](https://docs.astro.build/en/guides/content-collections/)
 - [styling and Tailwind](https://docs.astro.build/en/guides/styling/)
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues on `mcinarpro/mehmetcinar.com`, through `gh`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five default roles, each label named after its role. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
