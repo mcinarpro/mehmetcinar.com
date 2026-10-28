@@ -40,19 +40,19 @@ export default {
   },
   pages: {
     tagTitle: "Tag",
-    tagDesc: "All the articles with the tag",
+    tagDesc: "All the posts with the tag",
 
     tagsTitle: "Tags",
     tagsDesc: "All the tags used in posts.",
 
     postsTitle: "Posts",
-    postsDesc: "All the articles I've posted.",
+    postsDesc: "All the posts I've published.",
 
     archivesTitle: "Archives",
-    archivesDesc: "All the articles I've archived.",
+    archivesDesc: "All the posts I've archived.",
 
     searchTitle: "Search",
-    searchDesc: "Search any article ...",
+    searchDesc: "Search any post ...",
   },
   a11y: {
     skipToContent: "Skip to content",

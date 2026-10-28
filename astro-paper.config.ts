@@ -4,10 +4,9 @@ export default defineAstroPaperConfig({
   site: {
     url: "https://mehmetcinar.com/",
     title: "Mehmet Cinar",
-    description: "A software developer learning electricity from zero, in public.",
+    description: "A software developer learning electricity from zero.",
     author: "Mehmet Cinar",
     profile: "https://mehmetcinar.com/about/",
-    ogImage: "default-og.jpg",
     lang: "en",
     timezone: "Europe/Brussels",
     dir: "ltr",
@@ -20,12 +19,9 @@ export default defineAstroPaperConfig({
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
+    showArchives: false,
     showBackButton: true,
-    editPost: {
-      enabled: true,
-      url: "https://github.com/mcinarpro/mehmetcinar.com/edit/main/",
-    },
+    editPost: { enabled: false },
     search: "pagefind",
   },
   socials: [
