@@ -4,6 +4,8 @@ permissions:
   contents: read
 
 on:
+  push:
+    branches: [main]
   pull_request:
     types:
       - opened
@@ -16,7 +18,7 @@ jobs:
   build:
     name: Code standards & build
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 10
 
     steps:
       - name: "☁️ Checkout repository"
@@ -36,3 +38,6 @@ jobs:
 
       - name: "🚀 Build the project"
         run: bun run build
+
+      - name: "🔦 Lighthouse"
+        run: bun run lh:check

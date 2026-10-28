@@ -26,5 +26,8 @@ pnpm-debug.log*
 # pagefind
 public/pagefind
 
+# lighthouse ci
+.lighthouseci
+
 # pnpm
 .pnpm-store

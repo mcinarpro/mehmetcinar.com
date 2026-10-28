@@ -29,6 +29,7 @@ bun run dev            # http://localhost:4321
 bun run build          # astro check, astro build, Pagefind index
 bun run lint
 bun run format:check   # bun run format to fix
+bun run lh:check       # after a build: Lighthouse on key pages, fails under 100
 ```
 
 Agents start the dev server in background mode – `astro dev --background` – and manage it with
@@ -41,9 +42,7 @@ Agents start the dev server in background mode – `astro dev --background` – 
   deleted projects; a reader a year from now would not know what they are.
 - **bun is the package manager.** Never add another lockfile.
 - **Every UI change follows `DESIGN.md`.** Styles come from the tokens in
-  `src/styles/theme.css`; never hard-code a colour in a component. A change that touches a
-  colour or a Post layout keeps Lighthouse at 100 in Accessibility, Best Practices and SEO on a
-  Post page.
+  `src/styles/theme.css`; never hard-code a colour in a component.
 - **Commits follow Conventional Commits** (`feat:`, `fix:`, `style:`, `docs:`, `chore:`).
   Agents propose the message; Mehmet commits and pushes. Never commit or push unasked.
 - **`main` is production.** Work in progress lives on a branch.

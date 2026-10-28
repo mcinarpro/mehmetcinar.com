@@ -37,8 +37,9 @@ Every text colour meets WCAG AA (4.5:1) on its background, in both themes. Measu
 text 18–19:1, secondary text 5.7–9.2:1, accent 5.0–6.7:1. Borders are decorative and sit at
 1.3–1.6:1.
 
-A change that touches a colour is checked with Lighthouse on a Post page, which carries every
-element. The target is 100 in Accessibility, Best Practices and SEO.
+`bun run lh:check` runs Lighthouse on the pages listed in `lighthouserc.json` after a build, and
+CI fails below 100 in Accessibility, Best Practices or SEO. Add a new kind of page to that list
+when one appears.
 
 ## Typography
 
