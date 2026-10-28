@@ -1,9 +1,9 @@
 ---
 title: I built my personal site in one evening with Claude Code
 description: From an empty folder to a live site on its own domain in about three and a half hours. What the AI did, what I did, and where I said no.
-pubDatetime: 2026-10-28T09:00:00Z
+pubDatetime: 2026-10-28T06:20:00Z
 tags: [dev]
-draft: true
+draft: false
 ---
 
 I wanted something of my own, next to my job: a place to share what I build and what I learn. I
