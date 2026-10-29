@@ -50,6 +50,9 @@ I will start with a good YouTube playlist or a website for the basics. I also wa
 AI can help. I can share photos of the real wiring, ask it to draw diagrams, and use it to
 understand what is there and what I could change.
 
+I track the courses I follow, and how far I have got, on
+[learn.mehmetcinar.com](https://learn.mehmetcinar.com/electricity/).
+
 ## Like a developer
 
 The house is like a legacy codebase nobody wants to maintain. So I will work on it like a developer:

@@ -39,6 +39,18 @@ The web app is what we use today, in a group of two or three friends. The mobile
 done, and I will finish it: I enjoyed building it and put a lot of time into it. It needs two or
 three motivated days to get it over the line.
 
+## Learning
+
+A public tracker of what I am learning, from which courses, and how far I have got. Each
+Learning Path lists external courses – playlists, PDFs, online courses – split into the videos
+and chapters I tick as I go. The first one is electricity.
+
+React, Vite and a small Hono API on a Cloudflare Worker, with progress in Workers KV.
+[learn.mehmetcinar.com](https://learn.mehmetcinar.com)
+
+I built it because I learn from many sites. Some track my progress, some don't, and when I stop
+for a while it is hard to pick up again.
+
 ## mehmetcinar.com
 
 This Site. Astro on the AstroPaper theme, hosted on Cloudflare, built with Claude Code. The code
