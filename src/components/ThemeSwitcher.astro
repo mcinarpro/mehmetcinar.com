@@ -1,0 +1,36 @@
+---
+import IconSun from "@/assets/icons/IconSun.svg";
+import IconMonitor from "@/assets/icons/IconMonitor.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+
+// Geist's Light / System / Dark control, small size, for the footer. Lucide icons, the same
+// as learn.mehmetcinar.com's switcher.
+// src/scripts/theme.ts sets aria-checked and wires the clicks.
+const options = [
+  { value: "light", label: "Light theme", Icon: IconSun },
+  { value: "system", label: "System theme", Icon: IconMonitor },
+  { value: "dark", label: "Dark theme", Icon: IconMoon },
+];
+---
+
+<div
+  role="radiogroup"
+  aria-label="Theme"
+  class="border-border inline-flex gap-0.5 rounded-full border p-0.5"
+>
+  {
+    options.map(({ value, label, Icon }) => (
+      <button
+        type="button"
+        role="radio"
+        aria-checked="false"
+        aria-label={label}
+        title={label}
+        data-theme-choice={value}
+        class="focus-outline text-muted-foreground hover:text-foreground aria-checked:bg-muted aria-checked:text-foreground grid size-7 place-items-center rounded-full transition-colors"
+      >
+        <Icon class="size-4" aria-hidden="true" />
+      </button>
+    ))
+  }
+</div>

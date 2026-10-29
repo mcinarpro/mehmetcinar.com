@@ -100,17 +100,19 @@ const rssHref = getRelativeLocaleUrl(
     -->
     <script is:inline>
       (function () {
-        const cookie = document.cookie.match(/(?:^|; )theme=(light|dark)/)?.[1];
-        const stored = cookie ?? localStorage.getItem("theme");
+        // light | dark | system, shared with *.mehmetcinar.com (ADR 0002).
+        const cookie = document.cookie.match(
+          /(?:^|; )theme=(light|dark|system)/
+        )?.[1];
+        const stored = cookie ?? localStorage.getItem("theme") ?? "system";
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
-        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const theme =
+          stored === "system" ? (prefersDark ? "dark" : "light") : stored;
         const root = document.firstElementChild;
         root?.setAttribute("data-theme", theme);
         root?.classList.toggle("dark", theme === "dark");
-        // Expose value so theme.ts can skip re-detection.
-        window.__theme = { value: theme };
       })();
     </script>
 

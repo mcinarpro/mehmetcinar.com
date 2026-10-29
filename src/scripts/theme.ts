@@ -1,43 +1,46 @@
-const THEME_KEY = "theme";
-const LIGHT = "light";
-const DARK = "dark";
+// The reader's choice: light, dark or system. It is a `theme` cookie on .mehmetcinar.com,
+// shared with every *.mehmetcinar.com app (ADR 0002). No cookie means "system".
+type Choice = "light" | "dark" | "system";
 
-function readCookie(): string | undefined {
-  return document.cookie.match(/(?:^|; )theme=(light|dark)/)?.[1];
+const THEME_KEY = "theme";
+const systemDark = () =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+function readCookie(): Choice | undefined {
+  return document.cookie.match(/(?:^|; )theme=(light|dark|system)/)?.[1] as
+    Choice | undefined;
 }
 
-// Shared with every *.mehmetcinar.com app (ADR 0002): one choice, everywhere.
-function writeCookie(): void {
+// A choice made before the cookie existed lives only in localStorage.
+function readChoice(): Choice {
+  const legacy = localStorage.getItem(THEME_KEY);
+  return (
+    readCookie() ??
+    (legacy === "light" || legacy === "dark" ? legacy : "system")
+  );
+}
+
+function writeCookie(choice: Choice): void {
   const domain = location.hostname.endsWith("mehmetcinar.com")
     ? "; Domain=mehmetcinar.com"
     : "";
-  document.cookie = `${THEME_KEY}=${themeValue}; Path=/; Max-Age=31536000; SameSite=Lax; Secure${domain}`;
+  document.cookie = `${THEME_KEY}=${choice}; Path=/; Max-Age=31536000; SameSite=Lax; Secure${domain}`;
 }
 
-function getPreferredTheme(): string {
-  const stored = readCookie() ?? localStorage.getItem(THEME_KEY);
-  if (stored) return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? DARK
-    : LIGHT;
-}
-
-// Reuse the value already set by the inline FOUC-prevention script if available.
-let themeValue: string =
-  (window as unknown as { __theme?: { value: string } }).__theme?.value ??
-  getPreferredTheme();
-
-function persist(): void {
-  localStorage.setItem(THEME_KEY, themeValue);
-  writeCookie();
-  reflect();
-}
-
-function reflect(): void {
+function reflect(choice: Choice): void {
+  const theme =
+    choice === "system" ? (systemDark() ? "dark" : "light") : choice;
   const root = document.firstElementChild;
-  root?.setAttribute("data-theme", themeValue);
-  root?.classList.toggle("dark", themeValue === DARK);
-  document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
+  root?.setAttribute("data-theme", theme);
+  root?.classList.toggle("dark", theme === "dark");
+  document
+    .querySelectorAll<HTMLButtonElement>("[data-theme-choice]")
+    .forEach(button =>
+      button.setAttribute(
+        "aria-checked",
+        String(button.dataset.themeChoice === choice)
+      )
+    );
 
   // Fill <meta name="theme-color"> with the computed background colour so
   // Android's browser chrome matches the page background.
@@ -48,13 +51,22 @@ function reflect(): void {
 }
 
 function setup(): void {
-  // A choice made before the cookie existed lives only in localStorage: share it.
-  if (!readCookie() && localStorage.getItem(THEME_KEY)) writeCookie();
-  reflect();
-  document.querySelector("#theme-btn")?.addEventListener("click", () => {
-    themeValue = themeValue === LIGHT ? DARK : LIGHT;
-    persist();
-  });
+  const legacy = localStorage.getItem(THEME_KEY);
+  if (!readCookie() && (legacy === "light" || legacy === "dark"))
+    writeCookie(legacy);
+  reflect(readChoice());
+
+  document
+    .querySelectorAll<HTMLButtonElement>("[data-theme-choice]")
+    .forEach(button =>
+      button.addEventListener("click", () => {
+        const choice = button.dataset.themeChoice as Choice;
+        // The cookie is written only when the reader picks an option.
+        writeCookie(choice);
+        localStorage.setItem(THEME_KEY, choice);
+        reflect(choice);
+      })
+    );
 }
 
 setup();
@@ -75,10 +87,9 @@ document.addEventListener("astro:before-swap", event => {
   }
 });
 
-// Sync with OS-level dark/light preference changes.
+// While the choice is "system", follow the OS setting live; nothing is written.
 window
   .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", ({ matches }) => {
-    themeValue = matches ? DARK : LIGHT;
-    persist();
+  .addEventListener("change", () => {
+    if (readChoice() === "system") reflect("system");
   });
