@@ -23,6 +23,13 @@ export default {
     previousPost: "Previous Post",
     nextPost: "Next Post",
   },
+  newsletter: {
+    label: "Get new Posts by email",
+    submit: "Subscribe",
+    consent:
+      "One email when a new Post is out. No tracking, unsubscribe in one click.",
+    privacy: "Privacy",
+  },
   pagination: {
     prev: "Prev",
     next: "Next",
@@ -37,6 +44,7 @@ export default {
   footer: {
     copyright: "Copyright",
     allRightsReserved: "All rights reserved.",
+    privacy: "Privacy",
   },
   pages: {
     tagTitle: "Tag",

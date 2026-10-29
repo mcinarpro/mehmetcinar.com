@@ -1,0 +1,38 @@
+---
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<form
+  action="https://buttondown.com/api/emails/embed-subscribe/mcinarpro"
+  method="post"
+  class="border-border flex flex-col gap-3 rounded-md border p-4"
+>
+  <label for="newsletter-email" class="font-semibold">
+    {t.newsletter.label}
+  </label>
+  <div class="flex flex-col gap-2 sm:flex-row">
+    <input
+      type="email"
+      name="email"
+      id="newsletter-email"
+      required
+      autocomplete="email"
+      placeholder="you@example.com"
+      class="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-accent min-w-0 flex-1 rounded-md border px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2"
+    />
+    <button
+      type="submit"
+      class="bg-accent text-accent-foreground focus-visible:outline-accent rounded-md px-4 py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {t.newsletter.submit}
+    </button>
+  </div>
+  <p class="text-muted-foreground text-sm">
+    {t.newsletter.consent}{" "}
+    <a href="/privacy/" class="text-accent underline underline-offset-4">
+      {t.newsletter.privacy}
+    </a>
+  </p>
+</form>

@@ -1,0 +1,33 @@
+name: Newsletter
+
+permissions:
+  contents: read
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list the drafts it would create"
+        type: boolean
+        default: true
+
+jobs:
+  draft:
+    name: Draft emails for new Posts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "📦 Install bun"
+        uses: oven-sh/setup-bun@v2
+
+      - name: "✉️ Draft emails"
+        run: bun scripts/newsletter.ts
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}

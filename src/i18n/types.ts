@@ -21,6 +21,12 @@ export interface UIStrings {
     previousPost: string;
     nextPost: string;
   };
+  newsletter: {
+    label: string;
+    submit: string;
+    consent: string;
+    privacy: string;
+  };
   pagination: {
     prev: string;
     next: string;
@@ -35,6 +41,7 @@ export interface UIStrings {
   footer: {
     copyright: string;
     allRightsReserved: string;
+    privacy: string;
   };
   pages: {
     tagTitle: string;

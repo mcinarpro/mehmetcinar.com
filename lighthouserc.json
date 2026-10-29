@@ -5,6 +5,7 @@
       "url": [
         "http://localhost/",
         "http://localhost/about/",
+        "http://localhost/newsletter/",
         "http://localhost/posts/why-a-software-developer-is-learning-electricity/",
         "http://localhost/posts/i-built-my-personal-site-in-one-evening-with-claude-code/"
       ],

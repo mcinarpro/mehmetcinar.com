@@ -5,6 +5,7 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
+import NewsletterForm from "@/components/NewsletterForm.astro";
 import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
@@ -156,6 +157,10 @@ const ogImage = ogImageUrl
     </ul>
 
     <ShareLinks />
+
+    <div class="mt-8">
+      <NewsletterForm />
+    </div>
 
     <hr class="my-8" />
 

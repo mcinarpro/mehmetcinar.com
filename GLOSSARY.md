@@ -24,6 +24,14 @@ _Avoid_: Portfolio item, work, case study
 A label that groups Posts by subject. Today: `electricity` and `dev`.
 _Avoid_: Category, topic
 
+**Newsletter**:
+The email Mehmet sends to Subscribers when a new Post is published.
+_Avoid_: Mailing list, digest
+
+**Subscriber**:
+A reader who signed up for the Newsletter and confirmed it from the email they received.
+_Avoid_: Follower, member
+
 **Series**:
 An ordered sequence of Posts that follow one another, such as the stages of one piece of
 electrical work.
