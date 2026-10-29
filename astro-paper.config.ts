@@ -28,6 +28,7 @@ export default defineAstroPaperConfig({
     { name: "github",   url: "https://github.com/mcinarpro" },
     { name: "linkedin", url: "https://www.linkedin.com/in/mehmet-cinar/" },
     { name: "x",        url: "https://x.com/mcinarpro" },
+    { name: "mail",     url: "mailto:hello@mehmetcinar.com" },
   ],
   shareLinks: [
     { name: "linkedin", url: "https://www.linkedin.com/sharing/share-offsite/?url=" },
