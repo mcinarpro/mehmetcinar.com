@@ -2,8 +2,20 @@ const THEME_KEY = "theme";
 const LIGHT = "light";
 const DARK = "dark";
 
+function readCookie(): string | undefined {
+  return document.cookie.match(/(?:^|; )theme=(light|dark)/)?.[1];
+}
+
+// Shared with every *.mehmetcinar.com app (ADR 0002): one choice, everywhere.
+function writeCookie(): void {
+  const domain = location.hostname.endsWith("mehmetcinar.com")
+    ? "; Domain=mehmetcinar.com"
+    : "";
+  document.cookie = `${THEME_KEY}=${themeValue}; Path=/; Max-Age=31536000; SameSite=Lax; Secure${domain}`;
+}
+
 function getPreferredTheme(): string {
-  const stored = localStorage.getItem(THEME_KEY);
+  const stored = readCookie() ?? localStorage.getItem(THEME_KEY);
   if (stored) return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? DARK
@@ -17,6 +29,7 @@ let themeValue: string =
 
 function persist(): void {
   localStorage.setItem(THEME_KEY, themeValue);
+  writeCookie();
   reflect();
 }
 
@@ -35,6 +48,8 @@ function reflect(): void {
 }
 
 function setup(): void {
+  // A choice made before the cookie existed lives only in localStorage: share it.
+  if (!readCookie() && localStorage.getItem(THEME_KEY)) writeCookie();
   reflect();
   document.querySelector("#theme-btn")?.addEventListener("click", () => {
     themeValue = themeValue === LIGHT ? DARK : LIGHT;

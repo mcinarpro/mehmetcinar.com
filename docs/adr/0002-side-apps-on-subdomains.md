@@ -12,7 +12,9 @@ Each side app follows the same setup, so starting one is routine:
 - Workers Builds deploys `main` on every push; other branches get preview URLs;
 - the repo has its own `AGENTS.md` and, when it has a domain language, its own `GLOSSARY.md`;
 - an app that should feel part of the Site copies its tokens and typeface rather than sharing
-  a package.
+  a package;
+- the light/dark choice is a `theme` cookie on `.mehmetcinar.com`, which every app reads
+  before rendering and writes when the reader toggles, so one choice applies everywhere.
 
 A template or a script for this setup comes with the second app, not before.
 
