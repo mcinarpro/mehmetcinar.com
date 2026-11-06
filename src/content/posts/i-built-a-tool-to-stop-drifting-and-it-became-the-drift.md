@@ -3,7 +3,7 @@ title: I built a tool to stop drifting – and it became the drift
 description: Five projects in parallel, one day, 34 commits – and the moment I saw I was making the same mistake again.
 pubDatetime: 2026-11-06T20:00:00Z
 tags: [dev]
-draft: true
+draft: false
 ---
 
 I have five projects running in parallel, and I zap from one to the other.
